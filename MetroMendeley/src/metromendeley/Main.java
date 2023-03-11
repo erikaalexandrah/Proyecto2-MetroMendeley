@@ -8,13 +8,15 @@ package metromendeley;
  *
  * @author user
  */
-public class MetroMendeley {
+public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Interface main = new Interface();
+        main.setVisible(true);
     }
     
 }
