@@ -17,9 +17,6 @@ public class Main {
         // TODO code application logic here
         Interface main = new Interface();
         main.setVisible(true);
-        
-        App app = new App(); 
-        app.updateDefaultFile();
     }
     
 }

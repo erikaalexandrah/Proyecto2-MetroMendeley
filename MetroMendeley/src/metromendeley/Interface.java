@@ -10,6 +10,8 @@ package metromendeley;
  * Fecha: 11/03/2023
  */
 public class Interface extends javax.swing.JFrame {
+    private App app = App.getInstance(); 
+
 
     /**
      * Creates new form Interface
@@ -57,6 +59,11 @@ public class Interface extends javax.swing.JFrame {
         addSummary.setFont(new java.awt.Font("Muna", 1, 14)); // NOI18N
         addSummary.setForeground(new java.awt.Color(0, 0, 0));
         addSummary.setText("AGREGAR RESUMEN");
+        addSummary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSummaryActionPerformed(evt);
+            }
+        });
 
         searchByAuthor.setBackground(new java.awt.Color(102, 102, 102));
         searchByAuthor.setFont(new java.awt.Font("Muna", 1, 14)); // NOI18N
@@ -168,11 +175,21 @@ public class Interface extends javax.swing.JFrame {
 
     private void analyzeSummaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analyzeSummaryActionPerformed
         // TODO add your handling code here:
+        AnalyzeSumary analyzeSumary = new AnalyzeSumary();
+        analyzeSumary.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_analyzeSummaryActionPerformed
 
     private void searchByKeywordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByKeywordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchByKeywordActionPerformed
+
+    private void addSummaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSummaryActionPerformed
+        // TODO add your handling code here:
+        AddSumary addSumary = new AddSumary(); 
+        addSumary.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_addSummaryActionPerformed
 
     /**
      * @param args the command line arguments

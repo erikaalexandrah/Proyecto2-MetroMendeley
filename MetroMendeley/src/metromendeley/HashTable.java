@@ -39,6 +39,17 @@ public class HashTable {
         this.sumarys[position]=sumary;
     }
     
+    // Mostrar Artículos científicos por orden alfabeticamente 
+    public String showArticlesAlphabetic(){
+        String text = "";
+        for (int i=0; i<this.sumarys.length; i++){
+            if (this.sumarys[i]!=null){
+            text += i+". "+ this.sumarys[i].getTitle()+"\n";
+            }
+        }
+        System.out.println(text);
+        return text;
+    }
     // Getters & Setters
     
     /**
