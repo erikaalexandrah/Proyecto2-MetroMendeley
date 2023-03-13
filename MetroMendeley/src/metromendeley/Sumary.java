@@ -24,6 +24,23 @@ public class Sumary {
         this.keywords = keywords;
     }
     
+    public String showAttr(){
+        String authors = "";
+        for (int i=0; i<this.authors.length; i++){
+            authors += this.authors[i]+ ", ";
+        }
+        String keywords = "";
+        for (int j=0; j<this.keywords.length; j++){
+            int counter = 0;
+            int position = this.body.toLowerCase().indexOf(this.keywords[j].toLowerCase().replace("\n","").replace(".",""));
+            while (position !=-1) {
+                counter ++;
+                position = this.body.toLowerCase().indexOf(this.keywords[j].toLowerCase().replace("\n","").replace(".",""), position +1);
+            }
+            keywords += "- " + this.keywords[j].replace("\n","") + ": Frecuencia con la cual aparece en el resumen: " + counter + " veces.\n";
+        }
+        return "TÍTULO: \n" + this.title + "\n" + "AUTORES: \n" + authors + "\n" + "\n" + "PALABRAS CLAVES: \n"+keywords;
+    }
     
     // Getters & Setters
     /**

@@ -5,8 +5,9 @@
 package metromendeley;
 
 /**
- *
- * @author user
+ * Descripción: Main. 
+ * @author Erika Hernández.
+ * Fecha: 12/03/2023
  */
 public class Main {
 

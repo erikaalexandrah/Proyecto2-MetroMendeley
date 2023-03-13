@@ -9,8 +9,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author user
+ * Descripción: Interfaz de añadir nuevo artículo científico.
+ * @author Erika Hernández
+ * Fecha: 11/03/2023
  */
 public class AddSumary extends javax.swing.JFrame {
     private App app = App.getInstance(); 

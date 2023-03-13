@@ -20,7 +20,7 @@ public class App {
 
 
     public App() {
-        this.hashTable = new HashTable(10);
+        this.hashTable = new HashTable(30);
         this.updateDefaultFile();
     }
     
@@ -60,7 +60,7 @@ public class App {
          String[] arrayAux2, arrayAux3, arrayAux4, arrayAux5, arrayAux6;
          
          for (int i=0; i<arrayAux1.length; i++){
-            arrayAux2 = arrayAux1[i].split("Autores");
+            arrayAux2 = arrayAux1[i].split("Autores\n");
             // Con arrayAux2[0] se accede al titulo del paper. 
             arrayAux3 =arrayAux2[1].split("Resumen"); 
             // Con arrayAux4 se tiene un arreglo que contiene todos los autores de ese paper. 
@@ -76,7 +76,7 @@ public class App {
 
             
             // Se agrega temporalmente al hashTable el paper (OJO, es temporalmente porque todavía falta el método DoubleHashing que evite las posible colisiones derivadas de DBJ2
-            this.getHashTable().addSumary(sumary, getHashTable().DBJ2(sumary));
+            this.getHashTable().addSumary(sumary);
          }
     }
     
@@ -117,7 +117,7 @@ public class App {
             // Se crea el objeto SUMARY que contendrá todo lo anteriormente mencionado como atributo. 
             Sumary sumary = new Sumary(arrayAux2[0], arrayAux4, arrayAux5[0], arrayAux6);
             // Se agrega temporalmente al hashTable el paper (OJO, es temporalmente porque todavía falta el método DoubleHashing que evite las posible colisiones derivadas de DBJ2
-            getHashTable().addSumary(sumary, getHashTable().DBJ2(sumary));
+            getHashTable().addSumary(sumary);
             JOptionPane.showMessageDialog(null, "Su archivo se logró cargar efectivamente.");
 
         } catch (Exception e){

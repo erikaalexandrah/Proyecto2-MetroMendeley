@@ -4,9 +4,12 @@
  */
 package metromendeley;
 
+import javax.swing.JOptionPane;
+
 /**
- *
- * @author user
+ * Descripción: Interfaz de analizar paper. 
+ * @author Erika Hernández. 
+ * Fecha: 12/03/2023
  */
 public class AnalyzeSumary extends javax.swing.JFrame {
 
@@ -22,6 +25,15 @@ public class AnalyzeSumary extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         String text = app.getHashTable().showArticlesAlphabetic();
         showSumarys.setText(text);
+  
+   
+        //Se itera el array del hashTable para añadir los titulos al display.
+         for (int i = 0; i < app.getHashTable().getSumarys().length; i++) {
+            if (app.getHashTable().getSumarys()[i]!= null){
+                selectSumaryDisplay.addItem(app.getHashTable().getSumarys()[i].getTitle());
+             }
+        }
+         
     }
 
     /**
@@ -34,13 +46,14 @@ public class AnalyzeSumary extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         showSumarys = new javax.swing.JTextArea();
-        selectSumary = new javax.swing.JComboBox<>();
+        selectSumaryDisplay = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -60,6 +73,7 @@ public class AnalyzeSumary extends javax.swing.JFrame {
         jLabel5.setText("de artículos científicos disponibles:");
 
         showSumarys.setColumns(20);
+        showSumarys.setLineWrap(true);
         showSumarys.setRows(5);
         showSumarys.setEnabled(false);
         jScrollPane1.setViewportView(showSumarys);
@@ -98,8 +112,6 @@ public class AnalyzeSumary extends javax.swing.JFrame {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        selectSumary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel6.setText("RESUMEN:");
 
@@ -111,6 +123,11 @@ public class AnalyzeSumary extends javax.swing.JFrame {
         });
 
         jButton2.setText("ANALIZAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,7 +142,7 @@ public class AnalyzeSumary extends javax.swing.JFrame {
                         .addGap(55, 55, 55)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(selectSumary, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(selectSumaryDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jButton1)
@@ -139,7 +156,7 @@ public class AnalyzeSumary extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectSumary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectSumaryDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -157,6 +174,29 @@ public class AnalyzeSumary extends javax.swing.JFrame {
         principalMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+       try{
+       String title = (String) selectSumaryDisplay.getSelectedItem();
+       // Se determina el index de ese title con la hash function.
+       int index = app.getHashTable().DBJ2(title);
+       // Si no coinciden directamente el titulo seleccionado y el que hay en el array no se mantiene el index y se recalcula.
+       if (!app.getHashTable().getSumarys()[index].getTitle().equals(title)){
+           int i = 0;
+           int hash2 = app.getHashTable().doubleHash(title);
+           while (!app.getHashTable().getSumarys()[index].getTitle().equals(title)){
+            i++;
+            index = (index + i * hash2) % app.getHashTable().getSumarys().length;
+            }
+       }
+       this.setVisible(false);
+       AnalyzeSumary2 analyseTitle = new AnalyzeSumary2(index);
+       analyseTitle.setVisible(true);
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, "No seleccionó ningún título");
+       } 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,8 +242,9 @@ public class AnalyzeSumary extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> selectSumary;
+    private javax.swing.JComboBox<String> selectSumaryDisplay;
     private javax.swing.JTextArea showSumarys;
     // End of variables declaration//GEN-END:variables
 }
