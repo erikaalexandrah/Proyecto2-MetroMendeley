@@ -64,7 +64,7 @@ public class AnalyzeSumary extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel3.setText("A continuación tienes la lista ordenada alfabeticamente ");
+        jLabel3.setText("A continuación tiene una lista ordenada alfabeticamente ");
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel4.setText("ANALIZAR RESUMEN");
@@ -111,6 +111,12 @@ public class AnalyzeSumary extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(9, Short.MAX_VALUE))
         );
+
+        selectSumaryDisplay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectSumaryDisplayActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel6.setText("RESUMEN:");
@@ -197,6 +203,10 @@ public class AnalyzeSumary extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "No seleccionó ningún título");
        } 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void selectSumaryDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSumaryDisplayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectSumaryDisplayActionPerformed
 
     /**
      * @param args the command line arguments

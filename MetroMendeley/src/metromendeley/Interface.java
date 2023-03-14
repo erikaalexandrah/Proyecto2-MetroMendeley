@@ -177,12 +177,13 @@ public class Interface extends javax.swing.JFrame {
     private void analyzeSummaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analyzeSummaryActionPerformed
         // TODO add your handling code here:
         AnalyzeSumary analyzeSumary = new AnalyzeSumary();
-        analyzeSumary.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_analyzeSummaryActionPerformed
 
     private void searchByKeywordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByKeywordActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        ShowKeywords showKeywords = new ShowKeywords();
     }//GEN-LAST:event_searchByKeywordActionPerformed
 
     private void addSummaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSummaryActionPerformed

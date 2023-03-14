@@ -6,7 +6,6 @@ package metromendeley;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +19,7 @@ public class App {
 
 
     public App() {
-        this.hashTable = new HashTable(30);
+        this.hashTable= new HashTable(30, 300);
         this.updateDefaultFile();
     }
     
@@ -69,14 +68,19 @@ public class App {
             arrayAux5 = arrayAux3[1].split("Palabras claves:"); 
             // Con arrayAux6 Se tiene un arreglo que contiene todas las palabras claves de ese paper. 
             arrayAux6 = arrayAux5[1].split(","); 
+            for (int j=0;j<arrayAux6.length; j++){
+               arrayAux6[j] = arrayAux6[j].replace("\n","").replace(".", "");
+               //arrayAux6[j] = arrayAux6[j].substring(0, 1).toUpperCase() + arrayAux6[j].substring(1);
+            }
             // Se crea el objeto SUMARY que contendrá todo lo anteriormente mencionado como atributo. 
             Sumary sumary = new Sumary(arrayAux2[0], arrayAux4, arrayAux5[0], arrayAux6);
-//            System.out.println(arrayAux2[0]);
-//             System.out.println(getHashTable().DBJ2(sumary));
 
             
-            // Se agrega temporalmente al hashTable el paper (OJO, es temporalmente porque todavía falta el método DoubleHashing que evite las posible colisiones derivadas de DBJ2
-            this.getHashTable().addSumary(sumary);
+            // Se agrega el paper al hashTable 
+            int position = this.getHashTable().addSumary(sumary);
+            // Se agrega los keywords al hashtable secundario (util para el requerimiento 3). 
+            this.getHashTable().addKeyword(arrayAux6, position);
+            
          }
     }
     
@@ -137,5 +141,5 @@ public class App {
      */
     public void setHashTable(HashTable hashTable) {
         this.hashTable = hashTable;
-    }  
+    }      
 }
