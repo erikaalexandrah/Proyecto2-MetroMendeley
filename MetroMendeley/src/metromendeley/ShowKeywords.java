@@ -24,7 +24,7 @@ public class ShowKeywords extends javax.swing.JFrame {
         String text = app.getHashTable().showKeywordsAlphabetic();
         showKeywords.setText(text);
         
-        //Se itera el array del hashTable para añadir los titulos al display.
+        //Se itera el array del hashTable para añadir las keywords al display.
          for (int i = 0; i < app.getHashTable().getSumarys().length; i++) {
             if (app.getHashTable().getSumarys()[i]!= null){
                 for (int j=0; j<app.getHashTable().getSumarys()[i].getKeywords().length;j++){

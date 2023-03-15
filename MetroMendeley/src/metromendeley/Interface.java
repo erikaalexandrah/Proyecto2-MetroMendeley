@@ -34,7 +34,6 @@ public class Interface extends javax.swing.JFrame {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         jPanel1 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         addSummary = new javax.swing.JButton();
         searchByAuthor = new javax.swing.JButton();
         analyzeSummary = new javax.swing.JButton();
@@ -49,11 +48,6 @@ public class Interface extends javax.swing.JFrame {
         title.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
         title.setText("METROMENDELEY ");
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Hiragino Maru Gothic ProN", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Integrante: Erika Hernández");
 
         addSummary.setBackground(new java.awt.Color(102, 102, 102));
         addSummary.setFont(new java.awt.Font("Muna", 1, 14)); // NOI18N
@@ -122,9 +116,6 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(title)
                         .addGap(130, 130, 130))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(201, 201, 201))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,9 +137,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(analyzeSummary, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(jLabel2)
-                .addGap(17, 17, 17))
+                .addGap(102, 102, 102))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(162, 162, 162)
@@ -233,7 +222,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton analyzeSummary;
     private javax.swing.JButton exit;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton searchByAuthor;
     private javax.swing.JButton searchByKeyword;

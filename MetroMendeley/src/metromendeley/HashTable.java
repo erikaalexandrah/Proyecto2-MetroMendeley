@@ -37,11 +37,7 @@ public class HashTable {
     return Long.valueOf(hash % Long.valueOf(this.sumarys.length)).intValue();
     }
     
-    /**
-     * Erika Hernández.
-     * Fecha: 12/03/2023
-     * Método: Obtener el segundo Hash Function para el doubleHasing.
-     */
+    // Método: doubleHashing para el manejo de colisiones. 
      public int doubleHash(String title) {
         //Se selecciona un número primo para evitar patrones en la secuencia de saltos que se generan en caso de colisiones. 
         int prime = 31;
@@ -49,11 +45,7 @@ public class HashTable {
         return hash2;
     }
     
-    /**
-     * Erika Hernández.
-     * Fecha: 12/03/2023
-     * Método: Agregar resumen (paper) al HashTable.
-     */
+   // Añadir Resumen 
     public int addSumary(Sumary sumary){
         // Se llama al Hash function pripcipal DBJ2  
         int hash1 = DBJ2(sumary.getTitle());
@@ -83,11 +75,7 @@ public class HashTable {
     return index;
     }
     
-    /**
-     * Erika Hernández.
-     * Fecha: 12/03/2023
-     * Método: Agregar index del title al  Hashtable del keyword.
-     */
+    
     public void addKeyword(String[] keywordArray, int position){
         for (int i=0; i<keywordArray.length; i++){
             // Se llama al Hash function pripcipal DBJ2  
@@ -117,7 +105,7 @@ public class HashTable {
         }
     }
 
-    // Mostrar Artículos científicos por orden alfabeticamente 
+    // Mostrar Artículos científicos 
     public String showArticlesAlphabetic(){
         String text = "";
         for (int i=0; i<this.sumarys.length; i++){
@@ -128,7 +116,7 @@ public class HashTable {
         return text;
     }
     
-     // Mostrar Artículos científicos por orden alfabeticamente 
+     // Mostrar Artículos científicos 
     public String showKeywordsAlphabetic(){
         String text = "";
         for (int i=0; i<this.sumarys.length; i++){

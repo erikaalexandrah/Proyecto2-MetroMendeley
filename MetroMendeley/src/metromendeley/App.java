@@ -58,7 +58,7 @@ public class App {
          String[] arrayAux1 = txt.split("%");
          String[] arrayAux2, arrayAux3, arrayAux4, arrayAux5, arrayAux6;
          
-         for (int i=0; i<arrayAux1.length; i++){
+        for (int i=0; i<arrayAux1.length; i++){
             arrayAux2 = arrayAux1[i].split("Autores\n");
             // Con arrayAux2[0] se accede al titulo del paper. 
             arrayAux3 =arrayAux2[1].split("Resumen"); 
