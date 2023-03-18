@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package metromendeley;
+package metromendeley.MainClasses;
 
 /**
  * Descripción: Clase resumen de artículo científico. 
  * @author Erika Hernández
  * Fecha: 11/03/2023
  */
-public class Sumary {
+public class Summary {
     
     private String title; 
     private String[] authors;
@@ -17,7 +17,7 @@ public class Sumary {
     private String[] keywords;
 
     // Constructor 
-    public Sumary(String title, String[] authors, String body, String[] keywords) {
+    public Summary(String title, String[] authors, String body, String[] keywords) {
         this.title = title;
         this.authors = authors;
         this.body = body;

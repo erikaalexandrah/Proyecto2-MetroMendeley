@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package metromendeley;
+package metromendeley.GUI;
+
+import metromendeley.AppClasses.App;
+import metromendeley.MainClasses.Summary;
 
 /**
  * Descripción: Interfaz para mostrar estadísticas del artículo cientíifico.
@@ -36,7 +39,7 @@ public class AnalyzeSumary2 extends javax.swing.JFrame {
     }
     
     private void setTextArea(){
-        Sumary sumary = app.getHashTable().getSumarys()[index];
+        Summary sumary = app.getHashTable().getSummaries()[index];
         info.setText(sumary.showAttr());
     }
     /**

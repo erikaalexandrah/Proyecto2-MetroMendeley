@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package metromendeley;
+package metromendeley.GUI;
 
+import metromendeley.GUI.Interface;
+import metromendeley.GUI.AnalyzeSumary2;
+import metromendeley.AppClasses.App;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,8 +14,8 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class ShowKeywords extends javax.swing.JFrame {
-    private App app = App.getInstance(); 
 
+    private App app = App.getInstance();
 
     /**
      * Creates new form ShowKeywords
@@ -23,15 +26,15 @@ public class ShowKeywords extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         String text = app.getHashTable().showKeywordsAlphabetic();
         showKeywords.setText(text);
-        
+
         //Se itera el array del hashTable para añadir las keywords al display.
-         for (int i = 0; i < app.getHashTable().getSumarys().length; i++) {
-            if (app.getHashTable().getSumarys()[i]!= null){
-                for (int j=0; j<app.getHashTable().getSumarys()[i].getKeywords().length;j++){
-                    selectKeywordDisplay.addItem(app.getHashTable().getSumarys()[i].getKeywords()[j]);
+        for (int i = 0; i < app.getHashTable().getSummaries().length; i++) {
+            if (app.getHashTable().getSummaries()[i] != null) {
+                for (int j = 0; j < app.getHashTable().getSummaries()[i].getKeywords().length; j++) {
+                    selectKeywordDisplay.addItem(app.getHashTable().getSummaries()[i].getKeywords()[j]);
                 }
-             }
-        }   
+            }
+        }
     }
 
     /**
@@ -153,17 +156,17 @@ public class ShowKeywords extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         try{
-       String keyword = (String) selectKeywordDisplay.getSelectedItem();
-        // Se determina el index de ese keyword con la hash function.
-         int index = app.getHashTable().DBJ2(keyword);
-         int position = app.getHashTable().getKeywords()[index];
-         this.setVisible(false);
-         AnalyzeSumary2 analyseTitle = new AnalyzeSumary2(position);
-         analyseTitle.setVisible(true);
-         } catch (Exception e){
-           JOptionPane.showMessageDialog(null, "No seleccionó ninguna palabra clave");
-         }
+        try {
+            String keyword = (String) selectKeywordDisplay.getSelectedItem();
+            // Se determina el index de ese keyword con la hash function.
+            int index = app.getHashTable().DBJ2(keyword);
+            int position = app.getHashTable().getKeywords()[index];
+            this.setVisible(false);
+            AnalyzeSumary2 analyseTitle = new AnalyzeSumary2(position);
+            analyseTitle.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No seleccionó ninguna palabra clave");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package metromendeley;
+package metromendeley.GUI;
 
+import metromendeley.AppClasses.App;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,9 +29,9 @@ public class AnalyzeSumary extends javax.swing.JFrame {
   
    
         //Se itera el array del hashTable para añadir los titulos al display.
-         for (int i = 0; i < app.getHashTable().getSumarys().length; i++) {
-            if (app.getHashTable().getSumarys()[i]!= null){
-                selectSumaryDisplay.addItem(app.getHashTable().getSumarys()[i].getTitle());
+         for (int i = 0; i < app.getHashTable().getSummaries().length; i++) {
+            if (app.getHashTable().getSummaries()[i]!= null){
+                selectSumaryDisplay.addItem(app.getHashTable().getSummaries()[i].getTitle());
              }
         }
          
@@ -188,12 +189,12 @@ public class AnalyzeSumary extends javax.swing.JFrame {
        // Se determina el index de ese title con la hash function.
        int index = app.getHashTable().DBJ2(title);
        // Si no coinciden directamente el titulo seleccionado y el que hay en el array no se mantiene el index y se recalcula.
-       if (!app.getHashTable().getSumarys()[index].getTitle().equals(title)){
+       if (!app.getHashTable().getSummaries()[index].getTitle().equals(title)){
            int i = 0;
            int hash2 = app.getHashTable().doubleHash(title);
-           while (!app.getHashTable().getSumarys()[index].getTitle().equals(title)){
+           while (!app.getHashTable().getSummaries()[index].getTitle().equals(title)){
             i++;
-            index = (index + i * hash2) % app.getHashTable().getSumarys().length;
+            index = (index + i * hash2) % app.getHashTable().getSummaries().length;
             }
        }
        this.setVisible(false);

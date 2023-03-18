@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package metromendeley;
+package metromendeley.MainClasses;
 
 /**
  * Descripción: Primitiva HashTable 
@@ -11,12 +11,12 @@ package metromendeley;
  */
 
 public class HashTable {
-    private Sumary[] sumarys;
+    private Summary[] summaries;
     private int[] keywords;
 
     // Constructor vacío
     public HashTable(int i, int j) {
-        this.sumarys = new Sumary[i];
+        this.summaries = new Summary[i];
         this.keywords = new int[j];
         this.fill();
     }
@@ -34,7 +34,7 @@ public class HashTable {
             hash = -hash;
         }
         // Se obtiene el residuo del modulo del hash % len del array del hashTable. 
-    return Long.valueOf(hash % Long.valueOf(this.sumarys.length)).intValue();
+    return Long.valueOf(hash % Long.valueOf(this.getSummaries().length)).intValue();
     }
     
     // Método: doubleHashing para el manejo de colisiones. 
@@ -46,7 +46,7 @@ public class HashTable {
     }
     
    // Añadir Resumen 
-    public int addSumary(Sumary sumary){
+    public int addSumary(Summary sumary){
         // Se llama al Hash function pripcipal DBJ2  
         int hash1 = DBJ2(sumary.getTitle());
         // Se llama al DoubleHash para el manejo de colisiones.
@@ -56,20 +56,20 @@ public class HashTable {
         // Se asigna como index inicial al hash1
         int index = hash1;
         // Se valida si esta vacío el slot. 
-        if (this.sumarys[index] == null){
-             this.sumarys[index] = sumary;
+        if (this.getSummaries()[index] == null){
+            this.getSummaries()[index] = sumary;
         // Si no esta vacio se valida si se esta intentado meter el mismo paper ya cargado.
-         } else if (this.sumarys[index].getTitle().equals(sumary.getTitle())){
+         } else if (this.getSummaries()[index].getTitle().equals(sumary.getTitle())){
         // Si ninguno de los casos anteriores es, entonces estamos frente a una colisión y se soluciona. 
          } else {
             // Se itera hasta que el index este libre en el array. 
-            while (this.sumarys[index]!=null){
+            while (this.getSummaries()[index]!=null){
             i++;
             // Se asigna index nuevo usando metodo double hashing., 
-            index = (hash1 + i * hash2) % this.sumarys.length;
+            index = (hash1 + i * hash2) % this.getSummaries().length;
             }
             // Se agrega al array. 
-            this.sumarys[index]= sumary;
+            this.getSummaries()[index]= sumary;
             return index;
          }
     return index;
@@ -108,9 +108,9 @@ public class HashTable {
     // Mostrar Artículos científicos 
     public String showArticlesAlphabetic(){
         String text = "";
-        for (int i=0; i<this.sumarys.length; i++){
-            if (this.sumarys[i]!=null){
-            text += i+". "+ this.sumarys[i].getTitle()+"\n";
+        for (int i=0; i<this.getSummaries().length; i++){
+            if (this.getSummaries()[i]!=null){
+            text += i+". "+ this.getSummaries()[i].getTitle()+"\n";
             }
         }
         return text;
@@ -119,10 +119,10 @@ public class HashTable {
      // Mostrar Artículos científicos 
     public String showKeywordsAlphabetic(){
         String text = "";
-        for (int i=0; i<this.sumarys.length; i++){
-            if (this.sumarys[i]!=null){
-                for (int j=0; j<this.sumarys[i].getKeywords().length; j++){
-                text += "-  "+ this.sumarys[i].getKeywords()[j]+"\n";
+        for (int i=0; i<this.getSummaries().length; i++){
+            if (this.getSummaries()[i]!=null){
+                for (int j=0; j<this.getSummaries()[i].getKeywords().length; j++){
+                text += "-  "+ this.getSummaries()[i].getKeywords()[j]+"\n";
                 }
             }
         }
@@ -136,19 +136,19 @@ public class HashTable {
         }
     }
     // Getters & Setters
-    
+
     /**
-     * @return the sumarys
+     * @return the summaries
      */
-    public Sumary[] getSumarys() {
-        return sumarys;
+    public Summary[] getSummaries() {
+        return summaries;
     }
 
     /**
-     * @param sumarys the sumarys to set
+     * @param summaries the summaries to set
      */
-    public void setSumarys(Sumary[] sumarys) {
-        this.sumarys = sumarys;
+    public void setSummaries(Summary[] summaries) {
+        this.summaries = summaries;
     }
 
     /**
@@ -165,6 +165,7 @@ public class HashTable {
         this.keywords = keywords;
     }
     
+
     
     
     

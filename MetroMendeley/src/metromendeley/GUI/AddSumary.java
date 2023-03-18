@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package metromendeley;
+package metromendeley.GUI;
 
+import metromendeley.AppClasses.App;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -37,9 +38,9 @@ public class AddSumary extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        VolverBt = new javax.swing.JButton();
+        CargarBt = new javax.swing.JButton();
+        AdjuntarBt = new javax.swing.JButton();
         inputFile = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,24 +50,24 @@ public class AddSumary extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel2.setText("CARGAR ARCHIVO");
 
-        jButton1.setText("VOLVER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        VolverBt.setText("VOLVER");
+        VolverBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                VolverBtActionPerformed(evt);
             }
         });
 
-        jButton2.setText("CARGAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        CargarBt.setText("CARGAR");
+        CargarBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CargarBtActionPerformed(evt);
             }
         });
 
-        jButton3.setText("ADJUNTAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AdjuntarBt.setText("ADJUNTAR");
+        AdjuntarBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AdjuntarBtActionPerformed(evt);
             }
         });
 
@@ -87,7 +88,7 @@ public class AddSumary extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(AdjuntarBt)
                 .addGap(141, 141, 141))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -101,7 +102,7 @@ public class AddSumary extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(195, 195, 195))
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(CargarBt, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -109,7 +110,7 @@ public class AddSumary extends javax.swing.JFrame {
                                 .addComponent(jLabel2))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
-                                .addComponent(jButton1)))
+                                .addComponent(VolverBt)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
@@ -125,11 +126,11 @@ public class AddSumary extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(AdjuntarBt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(CargarBt)
+                    .addComponent(VolverBt))
                 .addGap(41, 41, 41))
         );
 
@@ -147,30 +148,30 @@ public class AddSumary extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void VolverBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBtActionPerformed
         // TODO add your handling code here:
         Interface principalMenu = new Interface();
         principalMenu.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_VolverBtActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void AdjuntarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdjuntarBtActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser(); 
         chooser.showOpenDialog(null); 
         File file = chooser.getSelectedFile(); 
         String fileName = file.getAbsolutePath(); 
         inputFile.setText(fileName); 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_AdjuntarBtActionPerformed
 
     private void inputFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputFileActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CargarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarBtActionPerformed
         // TODO add your handling code here:
         app.uploadSumary(inputFile.getText());
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CargarBtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,10 +210,10 @@ public class AddSumary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdjuntarBt;
+    private javax.swing.JButton CargarBt;
+    private javax.swing.JButton VolverBt;
     private javax.swing.JTextField inputFile;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
