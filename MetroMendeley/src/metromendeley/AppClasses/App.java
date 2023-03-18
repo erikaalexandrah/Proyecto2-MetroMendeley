@@ -41,7 +41,7 @@ public class App {
      * exista colisión en la asignación del index.
      */
     public void updateDefaultFile() {
-        String path = "src//Files//DefaultFile.txt";
+        String path = "test\\DefaultFile.txt";
         String line;
         String txt = "";
 
